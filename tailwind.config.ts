@@ -6,6 +6,12 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+const asColorObject = (
+input: TailwindThemeColors | undefined,
+): Exclude<typeof input, Function | undefined> => {
+if (_.isFunction(input) || !input) throw new Error();
+return input;
+};
   theme: {
     extend: {
       colors: {
